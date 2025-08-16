@@ -1,25 +1,28 @@
-# Datos del organigrama
-NODES = [
-    {"name": "CEO", "pos": (0, 2), "color": "#f0f0f0"},
-    {"name": "Team A Lead", "pos": (-1, 1), "color": "#b3e0ff"},
-    {"name": "Team B Lead", "pos": (1, 1), "color": "#ffd9d9"},
-    {"name": "Staff A", "pos": (-1.5, 0), "color": "#b3e0ff"},
-    {"name": "Staff B", "pos": (-0.5, 0), "color": "#b3e0ff"},
-    {"name": "Staff C", "pos": (0.5, 0), "color": "#ffd9d9"},
-    {"name": "Staff D", "pos": (1.5, 0), "color": "#ffd9d9"},
-    {"name": "Staff E", "pos": (2.5, 0), "color": "#ffd9d9"},
-]
 
-EDGES = [
-    ("CEO", "Team A Lead", "blue", "A"),
-    ("CEO", "Team B Lead", "red", "B"),
-    ("Team A Lead", "Staff A", "blue", None),
-    ("Team A Lead", "Staff B", "blue", None),
-    ("Team B Lead", "Staff C", "red", None),
-    ("Team B Lead", "Staff D", "red", None),
-    ("Team B Lead", "Staff E", "red", None),
-]
+from typing import List, Tuple, Dict, Optional
 
-NODE_SIZE = 2000
-FIG_SIZE = (10, 6)
-TITLE = "Organigrama de Company X"
+class OrganogramData:
+    """Clase para almacenar los datos del organigrama."""
+    def __init__(self) -> None:
+        self.nodes: List[Dict[str, object]] = [
+            {"name": "CEO", "pos": (0, 2), "color": "#f0f0f0"},
+            {"name": "Team A Lead", "pos": (-1, 1), "color": "#b3e0ff"},
+            {"name": "Team B Lead", "pos": (1, 1), "color": "#ffd9d9"},
+            {"name": "Staff A", "pos": (-1.5, 0), "color": "#b3e0ff"},
+            {"name": "Staff B", "pos": (-0.5, 0), "color": "#b3e0ff"},
+            {"name": "Staff C", "pos": (0.5, 0), "color": "#ffd9d9"},
+            {"name": "Staff D", "pos": (1.5, 0), "color": "#ffd9d9"},
+            {"name": "Staff E", "pos": (2.5, 0), "color": "#ffd9d9"},
+        ]
+        self.edges: List[Tuple[str, str, str, Optional[str]]] = [
+            ("CEO", "Team A Lead", "blue", "A"),
+            ("CEO", "Team B Lead", "red", "B"),
+            ("Team A Lead", "Staff A", "blue", None),
+            ("Team A Lead", "Staff B", "blue", None),
+            ("Team B Lead", "Staff C", "red", None),
+            ("Team B Lead", "Staff D", "red", None),
+            ("Team B Lead", "Staff E", "red", None),
+        ]
+        self.node_size: int = 2000
+        self.fig_size: Tuple[int, int] = (10, 6)
+        self.title: str = "Organigrama de Company X"
